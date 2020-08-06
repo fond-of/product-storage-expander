@@ -12,7 +12,7 @@
     "prefer-stable": true,
     "require": {
         "php": ">=7.3",
-        "spryker/product-storage": "^1.27"
+        "spryker/product-storage": "^1.13.0"
     },
     "require-dev": {
       "spryker/code-sniffer": "^0.14.7",

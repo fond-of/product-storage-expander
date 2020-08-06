@@ -2,7 +2,7 @@
 
 namespace FondOfSpryker\Client\ProductStorageExpander\Plugin;
 
-use FondOfSpryker\Shared\ProductPageSearchExpander\ProductPageSearchExpanderConstants;
+use FondOfSpryker\Shared\ProductStorageExpander\ProductStorageExpanderConstants;
 use Generated\Shared\Transfer\ProductViewTransfer;
 use Spryker\Client\Kernel\AbstractPlugin;
 use Spryker\Client\ProductStorage\Dependency\Plugin\ProductViewExpanderPluginInterface;
@@ -31,20 +31,20 @@ class ProductViewSizeSwitcherProductsExpanderPlugin extends AbstractPlugin imple
     ): ProductViewTransfer {
         $productAttributes = $productViewTransfer->getAttributes();
 
-        if (!isset($productAttributes[ProductPageSearchExpanderConstants::MODEL_KEY])) {
+        if (!isset($productAttributes[ProductStorageExpanderConstants::MODEL_KEY])) {
             return $productViewTransfer;
         }
 
-        if (!isset($productAttributes[ProductPageSearchExpanderConstants::STYLE_KEY])) {
+        if (!isset($productAttributes[ProductStorageExpanderConstants::STYLE_KEY])) {
             return $productViewTransfer;
         }
 
         $productsInDifferentSizes = $this->getFactory()
             ->getProductPageSearchExpanderClient()
             ->getProductsSizeSwitcher(
-                $productAttributes[ProductPageSearchExpanderConstants::MODEL_KEY],
-                $productAttributes[ProductPageSearchExpanderConstants::STYLE_KEY],
-                ProductPageSearchExpanderConstants::OPTION_SIZE_SWITCHER
+                $productAttributes[ProductStorageExpanderConstants::MODEL_KEY],
+                $productAttributes[ProductStorageExpanderConstants::STYLE_KEY],
+                ProductStorageExpanderConstants::OPTION_SIZE_SWITCHER
             );
 
         if (!isset($productsInDifferentSizes['products'])) {

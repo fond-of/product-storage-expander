@@ -2,7 +2,7 @@
 
 namespace FondOfSpryker\Client\ProductStorageExpander\Plugin;
 
-use FondOfSpryker\Shared\ProductPageSearchExpander\ProductPageSearchExpanderConstants;
+use FondOfSpryker\Shared\ProductStorageExpander\ProductStorageExpanderConstants;
 use Generated\Shared\Transfer\ProductViewTransfer;
 use Spryker\Client\Kernel\AbstractPlugin;
 use Spryker\Client\ProductStorage\Dependency\Plugin\ProductViewExpanderPluginInterface;
@@ -31,19 +31,19 @@ class ProductViewProductsEqualModelKeyAndSizeExpanderPlugin extends AbstractPlug
     ): ProductViewTransfer {
         $productAttributes = $productViewTransfer->getAttributes();
 
-        if (!isset($productAttributes[ProductPageSearchExpanderConstants::MODEL_KEY])) {
+        if (!isset($productAttributes[ProductStorageExpanderConstants::MODEL_KEY])) {
             return $productViewTransfer;
         }
 
-        if (!isset($productAttributes[ProductPageSearchExpanderConstants::SIZE])) {
+        if (!isset($productAttributes[ProductStorageExpanderConstants::SIZE])) {
             return $productViewTransfer;
         }
 
         $productsWithEqualModelKeyAndSize = $this->getFactory()
             ->getProductPageSearchExpanderClient()
             ->getProductsWithSameModelKeyAndSize(
-                $productAttributes[ProductPageSearchExpanderConstants::MODEL_KEY],
-                $productAttributes[ProductPageSearchExpanderConstants::SIZE]
+                $productAttributes[ProductStorageExpanderConstants::MODEL_KEY],
+                $productAttributes[ProductStorageExpanderConstants::SIZE]
             );
 
         if (!isset($productsWithEqualModelKeyAndSize['products'])) {

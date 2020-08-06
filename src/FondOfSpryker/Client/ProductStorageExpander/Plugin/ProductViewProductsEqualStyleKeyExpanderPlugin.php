@@ -2,7 +2,7 @@
 
 namespace FondOfSpryker\Client\ProductStorageExpander\Plugin;
 
-use FondOfSpryker\Shared\ProductPageSearchExpander\ProductPageSearchExpanderConstants;
+use FondOfSpryker\Shared\ProductStorageExpander\ProductStorageExpanderConstants;
 use Generated\Shared\Transfer\ProductViewTransfer;
 use Spryker\Client\Kernel\AbstractPlugin;
 use Spryker\Client\ProductStorage\Dependency\Plugin\ProductViewExpanderPluginInterface;
@@ -31,14 +31,14 @@ class ProductViewProductsEqualStyleKeyExpanderPlugin extends AbstractPlugin impl
     ): ProductViewTransfer {
         $productAttributes = $productViewTransfer->getAttributes();
 
-        if (!isset($productAttributes[ProductPageSearchExpanderConstants::STYLE_KEY])) {
+        if (!isset($productAttributes[ProductStorageExpanderConstants::STYLE_KEY])) {
             return $productViewTransfer;
         }
 
         $productsWithEqualStyleKey = $this
             ->getFactory()
             ->getProductPageSearchExpanderClient()
-            ->getProductsWithSameStyleKey($productAttributes[ProductPageSearchExpanderConstants::STYLE_KEY]);
+            ->getProductsWithSameStyleKey($productAttributes[ProductStorageExpanderConstants::STYLE_KEY]);
 
         if (!isset($productsWithEqualStyleKey['products'])) {
             return $productViewTransfer;

@@ -6,7 +6,7 @@ use FondOfSpryker\Client\ProductStorageExpander\Dependency\Client\ProductStorage
 use Spryker\Client\Kernel\AbstractDependencyProvider;
 use Spryker\Client\Kernel\Container;
 
-class ProductStorageExpanderDependecyProvider extends AbstractDependencyProvider
+class ProductStorageExpanderDependencyProvider extends AbstractDependencyProvider
 {
     public const CLIENT_PRODUCT_PAGE_SEARCH_EXPANDER = 'CLIENT_PRODUCT_PAGE_SEARCH_EXPANDER';
 
@@ -31,7 +31,7 @@ class ProductStorageExpanderDependecyProvider extends AbstractDependencyProvider
     {
         $container[static::CLIENT_PRODUCT_PAGE_SEARCH_EXPANDER] = function (Container $container) {
             return new ProductStorageExpanderToProductPageSearchExpanderClientBridge(
-                $container->getLocator()->productPageSearchExpanderClient()->client()
+                $container->getLocator()->productPageSearchExpander()->client()
             );
         };
 

@@ -14,6 +14,6 @@ class ProductStorageExpanderFactory extends AbstractFactory
      */
     public function getProductPageSearchExpanderClient(): ProductStorageExpanderToProductPageSearchExpanderClientInterface
     {
-        return $this->getProvidedDependency(ProductStorageExpanderDependecyProvider::CLIENT_PRODUCT_PAGE_SEARCH_EXPANDER);
+        return $this->getProvidedDependency(ProductStorageExpanderDependencyProvider::CLIENT_PRODUCT_PAGE_SEARCH_EXPANDER);
     }
 }

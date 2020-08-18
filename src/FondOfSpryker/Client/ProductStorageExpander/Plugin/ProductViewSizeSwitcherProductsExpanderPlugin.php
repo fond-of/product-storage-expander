@@ -31,18 +31,18 @@ class ProductViewSizeSwitcherProductsExpanderPlugin extends AbstractPlugin imple
     ): ProductViewTransfer {
         $productAttributes = $productViewTransfer->getAttributes();
 
-        if (!isset($productAttributes[ProductStorageExpanderConstants::MODEL_KEY])) {
+        if (!isset($productAttributes[ProductStorageExpanderConstants::STYLE_KEY])) {
             return $productViewTransfer;
         }
 
-        if (!isset($productAttributes[ProductStorageExpanderConstants::STYLE_KEY])) {
+        if (!isset($productAttributes[ProductStorageExpanderConstants::MODEL_SHORT])) {
             return $productViewTransfer;
         }
 
         $productsInDifferentSizes = $this->getFactory()
             ->getProductPageSearchExpanderClient()
             ->getProductsSizeSwitcher(
-                $productAttributes[ProductStorageExpanderConstants::MODEL_KEY],
+                $productAttributes[ProductStorageExpanderConstants::MODEL_SHORT],
                 $productAttributes[ProductStorageExpanderConstants::STYLE_KEY],
                 ProductStorageExpanderConstants::OPTION_SIZE_SWITCHER
             );

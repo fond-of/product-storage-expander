@@ -75,15 +75,15 @@ class ProductStorageExpanderToProductPageSearchExpanderClientBridge implements P
     }
 
     /**
-     * @param string $modelKey
+     * @param string $modelShort
      * @param string $styleKey
      * @param string|null $optionSizeSwitcher
      *
      * @return array|null
      * @deprecated use getProductsWithSameModelKeyAndStyleKey() instead
      */
-    public function getProductsSizeSwitcher(string $modelKey, string $styleKey, ?string $optionSizeSwitcher): ?array
+    public function getProductsSizeSwitcher(string $modelShort, string $styleKey, ?string $optionSizeSwitcher): ?array
     {
-        return $this->productPageSearchExpanderClient->getProductsSizeSwitcher($modelKey, $styleKey, $optionSizeSwitcher);
+        return $this->productPageSearchExpanderClient->getProductsSizeSwitcher($modelShort, $styleKey, $optionSizeSwitcher);
     }
 }
